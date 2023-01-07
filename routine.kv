@@ -35,6 +35,7 @@
                 #width: '50dp'
         BoxLayout:
             size_hint: (.25, 1)
+    #--time-card container
     BoxLayout:
         #size_hint: (1, .8)
         canvas:
@@ -44,7 +45,7 @@
                 size: self.size
                 pos: self.pos
         orientation: 'vertical'
-        padding: 10
+        padding: 20
         spacing: 20
         BoxLayout:
             canvas:
@@ -53,11 +54,12 @@
                 Rectangle:
                     size: self.size
                     pos: self.pos
-            size_hint: (.9, .5)
+            size_hint: (.9, .3)
             #size: (300, 200)
-            pos_hint: {'center_x': .5}
+            pos_hint: {'center_x': .5, 'top': 1}
             #width: '100dp'
             #height: '80dp'
+            padding_top: 10
         BoxLayout:
             canvas:
                 Color:
@@ -65,10 +67,10 @@
                 Rectangle:
                     size: self.size
                     pos: self.pos
-            size_hint: (.9, .5)
+            size_hint: (.9, .3)
             #size: (300, 200)
-            pos_hint: {'center_x': .5}
+            pos_hint: {'center_x': .5, 'top': 1}
             #width: '100dp'
             #width: '100dp'
             #height: '80dp'
-            
+            padding_top: 10
