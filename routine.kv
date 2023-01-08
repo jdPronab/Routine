@@ -36,7 +36,8 @@
         BoxLayout:
             size_hint: (.25, 1)
     #--time-card container
-    BoxLayout:
+    #BoxLayout:
+    StackLayout:
         #size_hint: (1, .8)
         canvas:
             Color:
@@ -44,33 +45,44 @@
             Rectangle:
                 size: self.size
                 pos: self.pos
-        orientation: 'vertical'
+        orientation: 'tb-lr'
         padding: 20
         spacing: 20
         BoxLayout:
             canvas:
                 Color:
-                    rgb: (1, 1, 1)
+                    rgb: (93/225, 99/225, 94/225)
                 Rectangle:
                     size: self.size
                     pos: self.pos
-            size_hint: (.9, .3)
-            #size: (300, 200)
-            pos_hint: {'center_x': .5, 'top': 1}
-            #width: '100dp'
-            #height: '80dp'
-            padding_top: 10
+            size_hint: (1, .3)
+            pos_hint: {'center_x': .5}
+            orientation: 'vertical'
+            Label:
+                markup: True
+                text: "[b][size=30]{}[/size][/b]".format(root.current_alarm_name)
+            Label:
+                markup: True
+                text: "[size=20]{}[/size][sup][size=20]ss[/size][/sup]".format(root.current_alarm_time)
+            Label:
+                markup: True
+                text: "{}".format(root.current_alarm_description)
         BoxLayout:
             canvas:
                 Color:
-                    rgb: (1, 1, 0)
+                    rgb: (93/225, 99/225, 94/225)
                 Rectangle:
                     size: self.size
                     pos: self.pos
-            size_hint: (.9, .3)
-            #size: (300, 200)
-            pos_hint: {'center_x': .5, 'top': 1}
-            #width: '100dp'
-            #width: '100dp'
-            #height: '80dp'
-            padding_top: 10
+            size_hint: (1, .3)
+            pos_hint: {'center_x': .5}
+            orientation: 'vertical'
+            Label:
+                markup: True
+                text: "[b][size=30]Name of[/size][/b]"
+            Label:
+                markup: True
+                text: "Time -[size=20]HH-MM-[/size][sup][size=20]ss[/size][/sup]"
+            Label:
+                markup: True
+                text: "Description of the task"
