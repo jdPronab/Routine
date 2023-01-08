@@ -1,20 +1,27 @@
 def write_alarm(file, time_str, mode):
-    with open(file, mode) as f:
-        f.write(time_str + "\n")
-
+    try:
+        with open(file, mode) as f:
+            f.write(time_str + "\n")
+    except FileNotFoundError:
+        with open(file, 'w') as f:
+            f.write(time_str + "\n")
 
 def add_alarm(file, time_str):
     write_alarm(file, time_str, 'a')
 
 def get_alarm_data(file):
     alarms = {}
-    with open(file, 'r') as f:
-        for line in f.readlines():
-            line_seg = [word for word in line.split(',')]
-            #print(line_seg)
-            alarms[line_seg[0]] = {"time": line_seg[1],
-                                   "repetition": line_seg[2],
-                                   "description": line_seg[3].strip("\n")}
+    try:
+        with open(file, 'r') as f:
+            for line in f.readlines():
+                line_seg = [word for word in line.split(',')]
+                #print(line_seg)
+                alarms[line_seg[0]] = {"time": line_seg[1],
+                                       "repetition": line_seg[2],
+                                       "description": line_seg[3].strip("\n")}
+    except FileNotFoundError:
+        print("{} is not found".format(file))
+        return False
     return alarms
 
 def rewrite_alarm_data(file, alarm_dict):
